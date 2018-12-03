@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/C:/Users/alu2017310/Desktop/XMLSudokuses/persistence/users_scheme.xsd" uri="xml-resources/jaxb/Users/users_scheme.xsd"/>
+    <system systemId="file:/C:/Users/alu2017310/Desktop/XMLSudokuses/persistence/history_scheme.xsd" uri="xml-resources/jaxb/History/history_scheme.xsd"/>
+    <system systemId="file:/C:/Users/alu2017310/Desktop/XMLSudokuses/persistence/sudokus_scheme.xsd" uri="xml-resources/jaxb/Sudokus/sudokus_scheme.xsd"/>
+    <system systemId="file:/C:/Users/alu2017310/Desktop/JAXBSudokuses/persistence/sudokus_scheme.xsd" uri="xml-resources/jaxb/Sudokus/sudokus_scheme.xsd"/>
+    <system systemId="file:/C:/Users/alu2017310/Desktop/JAXBSudokuses/persistence/users_scheme.xsd" uri="xml-resources/jaxb/Users/users_scheme.xsd"/>
+    <system systemId="file:/C:/Users/alu2017310/Desktop/JAXBSudokuses/persistence/history_scheme.xsd" uri="xml-resources/jaxb/Register/history_scheme.xsd"/>
+</catalog>
