@@ -3,10 +3,11 @@ package persistence;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import model.sudokus.Sudokus;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import management.Manager;
 import model.sudokus.Sudokus.Sudoku;
 
 public class IOManager {
@@ -16,7 +17,7 @@ public class IOManager {
     static final String ROOT_PATH = System.getProperty("user.dir");
     static final String PERSISTENCE_DIRECTORY_PATH = ROOT_PATH + PATH_SEPARATOR + "persistence";
 
-    public static void loadData() throws IOException {
+    public static void loadData() throws Exception {
         File sudokusXML = new File(PERSISTENCE_DIRECTORY_PATH + PATH_SEPARATOR + "sudokus.xml");
         if (sudokusXML.createNewFile()) {
             // Read from TXT
@@ -26,12 +27,11 @@ public class IOManager {
             readSudokusXML();
         }
     }
-    static void readSudokusTXT() throws IOException {
+    static void readSudokusTXT() throws Exception {
         try {
-            File sudokusTXT = new File(PERSISTENCE_DIRECTORY_PATH + "sudokus.txt");
+            File sudokusTXT = new File(PERSISTENCE_DIRECTORY_PATH + PATH_SEPARATOR + "sudokus.txt");
             FileReader fr = new FileReader(sudokusTXT);
             BufferedReader br = new BufferedReader(fr);
-            Sudokus sudokus = new Sudokus();
 
             // Read txt file
             String line;
@@ -46,14 +46,17 @@ public class IOManager {
                 sudoku.setLevel(Integer.parseInt(difficulty[1]));
                 sudoku.setDescription(difficulty[2]);
                 sudoku.setProblem(problem);
-                sudoku.setSolution(Integer.parseInt(solution));
+                sudoku.setSolution(solution);
 
                 // Add new sudoku to sudokus list
-                sudokus.getSudoku().add(sudoku);
+                Manager.getSudokus().getSudoku().add(sudoku);
             }
 
-        } catch (FileNotFoundException e) {
-            throw new FileNotFoundException("No existe el fichero");
+            // Write Sudokus into XML
+            JAXBContext jc = JAXBContext.newInstance(Sudoku.class);
+
+        } catch (JAXBException ex) {
+            throw new JAXBException("There was an error when writting into persistence");
         }
     }
     static void readSudokusXML() {

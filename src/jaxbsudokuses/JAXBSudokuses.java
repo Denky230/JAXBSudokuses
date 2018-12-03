@@ -3,23 +3,21 @@ package jaxbsudokuses;
 
 import java.io.IOException;
 import java.util.List;
-import model.sudokus.Sudokus;
+import management.Manager;
 import model.sudokus.Sudokus.Sudoku;
-import persistence.IOManager;
 
 public class JAXBSudokuses {
 
     public static void main(String[] args) {
         try {
             // Load data from persistence
-            IOManager.loadData();
+            Manager.initApp();
 
-            List<Sudoku> sudokus = new Sudokus().getSudoku();
-            for (Sudoku sudoku : sudokus) {
-                System.out.println(sudoku.toString());
-            }
-
+            List<Sudoku> sudokus = Manager.getSudokus().getSudoku();
             System.out.println(sudokus.size());
-        } catch (IOException e) {}
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
