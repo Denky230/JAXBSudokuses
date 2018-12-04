@@ -1,22 +1,40 @@
 
 package jaxbsudokuses;
 
-import java.io.IOException;
-import java.util.List;
 import management.Manager;
-import model.sudokus.Sudokus.Sudoku;
+import utils.Reader;
 
 public class JAXBSudokuses {
 
     public static void main(String[] args) {
+        // Menu variables
+        boolean exit = false;
+        int menuOption;
+
         try {
             // Load data from persistence
             Manager.initApp();
 
-            List<Sudoku> sudokus = Manager.getSudokus().getSudoku();
-            System.out.println(sudokus.size());
+            while (!exit) {
+                System.out.println(
+                        "\n*** Sudokuses ***\n"
+                        + "1 - Log in\n"
+                        + "2 - Register\n"
+                        + "0 - Exit"
+                );
 
-        } catch (IOException e) {
+                menuOption = Reader.nextInt(2);
+                switch (menuOption) {
+                    case 1: // LOG IN
+                        break;
+                    case 2: // REGISTER
+                        break;
+                    case 0: // EXIT
+                        exit = true;
+                        break;
+                }
+            }
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }

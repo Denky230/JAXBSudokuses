@@ -1,20 +1,20 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <schemas xmlns='http://xml.netbeans.org/schema/JAXBWizConfig' destdir='build/generated-sources/jaxb' projectName='XMLSudokuses' version='1.0'>
-	<schema type='-xmlschema' package='model.users' name='Users'>
+	<schema type='-xmlschema' package='model.register' name='Register'>
 		<xjc-options>
 		</xjc-options>
 		<schema-sources>
-			<schema-source location='xml-resources/jaxb/Users/users_scheme.xsd' origLocation='persistence/users_scheme.xsd'/>
+			<schema-source location='xml-resources/jaxb/Register/history_scheme.xsd' origLocation='persistence/XSDs/history_scheme.xsd'/>
 		</schema-sources>
 		<bindings>
 		</bindings>
 		<catalog/>
 	</schema>
-	<schema type='-xmlschema' package='model.register' name='Register'>
+	<schema type='-xmlschema' package='model.users' name='Users'>
 		<xjc-options>
 		</xjc-options>
 		<schema-sources>
-			<schema-source location='xml-resources/jaxb/Register/history_scheme.xsd' origLocation='persistence/history_scheme.xsd'/>
+			<schema-source location='xml-resources/jaxb/Users/users_scheme.xsd' origLocation='persistence/XSDs/users_scheme.xsd'/>
 		</schema-sources>
 		<bindings>
 		</bindings>
@@ -24,7 +24,7 @@
 		<xjc-options>
 		</xjc-options>
 		<schema-sources>
-			<schema-source location='xml-resources/jaxb/Sudokus/sudokus_scheme.xsd' origLocation='persistence/sudokus_scheme.xsd'/>
+			<schema-source location='xml-resources/jaxb/Sudokus/sudokus_scheme.xsd' origLocation='persistence/XSDs/sudokus_scheme.xsd'/>
 		</schema-sources>
 		<bindings>
 		</bindings>

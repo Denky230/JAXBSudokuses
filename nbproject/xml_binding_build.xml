@@ -11,20 +11,6 @@
     <target name="jaxb-code-generation" depends="xjc-typedef-target,-do-init,-init-macrodef-javac">
         <mkdir dir="${build.generated.sources.dir}/jaxb" xmlns:s="http://xml.netbeans.org/schema/JAXBWizConfig"/>
         <mkdir dir="build/generated/jaxbCache" xmlns:s="http://xml.netbeans.org/schema/JAXBWizConfig"/>
-        <mkdir dir="build/generated/jaxbCache/Users"/>
-        <xjc package="model.users" destdir="build/generated/jaxbCache/Users" catalog="catalog.xml">
-            <classpath>
-                <pathelement location="${src.dir}"/>
-                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
-            </classpath>
-            <arg value="-xmlschema"/>
-            <schema file="xml-resources/jaxb/Users/users_scheme.xsd"/>
-            <depends file="xml-resources/jaxb/Users/users_scheme.xsd"/>
-            <produces dir="build/generated/jaxbCache/Users"/>
-        </xjc>
-        <copy todir="${build.generated.sources.dir}/jaxb">
-            <fileset dir="build/generated/jaxbCache/Users"/>
-        </copy>
         <mkdir dir="build/generated/jaxbCache/Register"/>
         <xjc package="model.register" destdir="build/generated/jaxbCache/Register" catalog="catalog.xml">
             <classpath>
@@ -38,6 +24,20 @@
         </xjc>
         <copy todir="${build.generated.sources.dir}/jaxb">
             <fileset dir="build/generated/jaxbCache/Register"/>
+        </copy>
+        <mkdir dir="build/generated/jaxbCache/Users"/>
+        <xjc package="model.users" destdir="build/generated/jaxbCache/Users" catalog="catalog.xml">
+            <classpath>
+                <pathelement location="${src.dir}"/>
+                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
+            </classpath>
+            <arg value="-xmlschema"/>
+            <schema file="xml-resources/jaxb/Users/users_scheme.xsd"/>
+            <depends file="xml-resources/jaxb/Users/users_scheme.xsd"/>
+            <produces dir="build/generated/jaxbCache/Users"/>
+        </xjc>
+        <copy todir="${build.generated.sources.dir}/jaxb">
+            <fileset dir="build/generated/jaxbCache/Users"/>
         </copy>
         <mkdir dir="build/generated/jaxbCache/Sudokus"/>
         <xjc package="model.sudokus" destdir="build/generated/jaxbCache/Sudokus" catalog="catalog.xml">
