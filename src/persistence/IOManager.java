@@ -15,13 +15,12 @@ import model.sudokus.Sudokus;
 import model.sudokus.Sudokus.Sudoku;
 
 public class IOManager {
-    
+
     // Operative System's path separator
     static final String PATH_SEPARATOR = File.separator;
     // Project path
     static final String ROOT_PATH = System.getProperty("user.dir");
-    
-    // PERSISTENCE
+
     static final String PERSISTENCE_DIRECTORY_PATH = ROOT_PATH + PATH_SEPARATOR + "persistence" + PATH_SEPARATOR;
     static final File SUDOKUS_TXT = new File(PERSISTENCE_DIRECTORY_PATH + "sudokus.txt");
     static final File SUDOKUS_XML = new File(PERSISTENCE_DIRECTORY_PATH + "sudokus.xml");
