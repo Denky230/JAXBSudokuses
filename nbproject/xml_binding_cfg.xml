@@ -1,15 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <schemas xmlns='http://xml.netbeans.org/schema/JAXBWizConfig' destdir='build/generated-sources/jaxb' projectName='XMLSudokuses' version='1.0'>
-	<schema type='-xmlschema' package='model.register' name='Register'>
-		<xjc-options>
-		</xjc-options>
-		<schema-sources>
-			<schema-source location='xml-resources/jaxb/Register/history_scheme.xsd' origLocation='persistence/XSDs/history_scheme.xsd'/>
-		</schema-sources>
-		<bindings>
-		</bindings>
-		<catalog/>
-	</schema>
 	<schema type='-xmlschema' package='model.users' name='Users'>
 		<xjc-options>
 		</xjc-options>
@@ -25,6 +15,16 @@
 		</xjc-options>
 		<schema-sources>
 			<schema-source location='xml-resources/jaxb/Sudokus/sudokus_scheme.xsd' origLocation='persistence/XSDs/sudokus_scheme.xsd'/>
+		</schema-sources>
+		<bindings>
+		</bindings>
+		<catalog/>
+	</schema>
+	<schema type='-xmlschema' package='model.register' name='Register'>
+		<xjc-options>
+		</xjc-options>
+		<schema-sources>
+			<schema-source location='xml-resources/jaxb/Register/register_scheme.xsd' origLocation='persistence/XSDs/register_scheme.xsd'/>
 		</schema-sources>
 		<bindings>
 		</bindings>

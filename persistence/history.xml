@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<register>
+    <entry time="10">
+        <user>
+            <name>oscar</name>
+            <username>hola</username>
+            <password>penis</password>
+        </user>
+        <sudoku level="6" description="Medium">
+            <problem>.3.....6..518.723.2.7...8.4...754.......3.......692...3.6...5.2.852.371..4.....9.</problem>
+            <solution>839425167451867239267319854623754981794138625518692473376981542985243716142576398</solution>
+        </sudoku>
+    </entry>
+    <entry time="6">
+        <user>
+            <name>oscar</name>
+            <username>hola</username>
+            <password>penis</password>
+        </user>
+        <sudoku level="7" description="Medium">
+            <problem>6.42...9....59.1..8....4...9......825.2...7.347......6...8....1..7.39....4...15.9</problem>
+            <solution>614273895723598164895164237936715482582946713471382956269857341157439628348621579</solution>
+        </sudoku>
+    </entry>
+</register>

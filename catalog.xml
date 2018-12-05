@@ -9,4 +9,5 @@
     <system systemId="file:/C:/Users/Jandro/Desktop/JAXBSudokuses/persistence/XSDs/history_scheme.xsd" uri="xml-resources/jaxb/Register/history_scheme.xsd"/>
     <system systemId="file:/C:/Users/Jandro/Desktop/JAXBSudokuses/persistence/XSDs/users_scheme.xsd" uri="xml-resources/jaxb/Users/users_scheme.xsd"/>
     <system systemId="file:/C:/Users/Jandro/Desktop/JAXBSudokuses/persistence/XSDs/sudokus_scheme.xsd" uri="xml-resources/jaxb/Sudokus/sudokus_scheme.xsd"/>
+    <system systemId="file:/C:/Users/Jandro/Desktop/JAXBSudokuses/persistence/XSDs/register_scheme.xsd" uri="xml-resources/jaxb/Register/register_scheme.xsd"/>
 </catalog>

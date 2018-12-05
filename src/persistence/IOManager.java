@@ -11,7 +11,9 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import management.Manager;
+import management.RegisterManager;
 import management.UserManager;
+import model.register.Register;
 import model.sudokus.Sudokus;
 import model.sudokus.Sudokus.Sudoku;
 import model.users.Users;
@@ -27,7 +29,7 @@ public class IOManager {
     static final File SUDOKUS_TXT = new File(PERSISTENCE_DIRECTORY_PATH + "sudokus.txt");
     static final File SUDOKUS_XML = new File(PERSISTENCE_DIRECTORY_PATH + "sudokus.xml");
     static final File USERS_XML = new File(PERSISTENCE_DIRECTORY_PATH + "users.xml");
-    static final File HISTORY_XML = new File(PERSISTENCE_DIRECTORY_PATH + "history.xml");
+    static final File REGISTER_XML = new File(PERSISTENCE_DIRECTORY_PATH + "history.xml");
 
     public static void loadData() throws Exception {
         // Check if first time running the app
@@ -40,6 +42,7 @@ public class IOManager {
         }
 
         loadUsers();
+        loadRegister();
     }
     static void readSudokusFromTXT() throws IOException, JAXBException {
         try {
@@ -93,6 +96,21 @@ public class IOManager {
     }
     public static void marshallUsers() throws JAXBException {
         marshallToXML(UserManager.getUsers(), USERS_XML);
+    }
+
+    static void loadRegister() throws JAXBException {
+        Register register = new Register();
+
+        if (REGISTER_XML.exists()) {
+            // Get register from persistence
+             register = (Register) unmarshallXML(Register.class, REGISTER_XML);
+        }
+
+        // Save register in memory
+        RegisterManager.setRegister(register);
+    }
+    public static void marshallRegister() throws JAXBException {
+        marshallToXML(RegisterManager.getRegister(), REGISTER_XML);
     }
 
     /**
