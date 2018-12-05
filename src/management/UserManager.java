@@ -1,20 +1,18 @@
 
 package management;
 
-import java.util.List;
 import model.users.Users;
 import model.users.Users.User;
 
 public class UserManager {
 
-    private static List<User> users;
+    private static Users users;
 
-    public static void setUp() {
-        users = new Users().getUser();
-    }
+    public static Users getUsers() { return users; }
+    public static void setUsers(Users u) { users = u; }
 
     public static boolean findUserByName(String username) {
-        for (User user : users) {
+        for (User user : users.getUser()) {
             if (user.getName().equals(username))
                 return true;
         }
@@ -23,19 +21,23 @@ public class UserManager {
     }
 
     public static User validateUser(String username, String password) {
-        for (User user : users) {
+        for (User user : users.getUser()) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password))
                 return user;
         }
 
-        // TO DO: make custom exception
-        throw new NullPointerException("User not found");
+        // TO DO: custom exception
+        throw new NullPointerException("Wrong credentials");
     }
 
-    public static boolean addUser(User user) {
+    /**
+     * User registration.
+     * @param user User to register
+     */
+    public static void addUser(User user) {
         if (!findUserByName(user.getName()))
-            return users.add(user);
+            users.getUser().add(user);
 
-        return false;
+        // TO DO: else throw register custom exception
     }
 }

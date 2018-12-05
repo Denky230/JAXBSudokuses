@@ -11,8 +11,10 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import management.Manager;
+import management.UserManager;
 import model.sudokus.Sudokus;
 import model.sudokus.Sudokus.Sudoku;
+import model.users.Users;
 
 public class IOManager {
 
@@ -29,17 +31,15 @@ public class IOManager {
 
     public static void loadData() throws Exception {
         // Check if first time running the app
-        if (SUDOKUS_XML.createNewFile()) {
+        if (!SUDOKUS_XML.exists()) {
             // FIRST TIME
             readSudokusFromTXT();
-
-            // Make rest of persistence files
-            USERS_XML.createNewFile();
-            HISTORY_XML.createNewFile();
         } else {
             // NOT FIRST TIME
             readSudokusFromXML();
         }
+
+        loadUsers();
     }
     static void readSudokusFromTXT() throws IOException, JAXBException {
         try {
@@ -80,12 +80,27 @@ public class IOManager {
         Manager.setSudokus(sudokus);
     }
 
+    static void loadUsers() throws JAXBException {
+        Users users = new Users();
+
+        if (USERS_XML.exists()) {
+            // Get users from persistence
+             users = (Users) unmarshallXML(Users.class, USERS_XML);
+        }
+
+        // Save users in memory
+        UserManager.setUsers(users);
+    }
+    public static void marshallUsers() throws JAXBException {
+        marshallToXML(UserManager.getUsers(), USERS_XML);
+    }
+
     /**
      * Parse data from an XML file using a JAXB class.
      * @param jaxbClass JAXB class
      * @param input XML file
      * @return Object containing XML data
-     * @throws JAXBException 
+     * @throws JAXBException
      */
     static Object unmarshallXML(Class jaxbClass, File input) throws JAXBException {
         try {
@@ -103,7 +118,7 @@ public class IOManager {
      * Write JAXB object data into an XML file.
      * @param jaxbInstance JAXB object
      * @param output XML file
-     * @throws JAXBException 
+     * @throws JAXBException
      */
     static void marshallToXML(Object jaxbInstance, File output) throws JAXBException {
         try {

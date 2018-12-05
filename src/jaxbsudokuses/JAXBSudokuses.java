@@ -26,8 +26,10 @@ public class JAXBSudokuses {
                 menuOption = Reader.nextInt(2);
                 switch (menuOption) {
                     case 1: // LOG IN
+                        Manager.loginUser();
                         break;
                     case 2: // REGISTER
+                        Manager.registerUser();
                         break;
                     case 0: // EXIT
                         exit = true;
